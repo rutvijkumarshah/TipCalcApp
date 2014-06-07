@@ -57,15 +57,7 @@ public class TipCalcActivity extends Activity {
 	 */
 	public void calcuateTip(final View v){
     	final int viewId=v.getId();
-    	float tipPercentage=10f;
-    	switch(viewId){
-	    	case R.id.fifteen_percent:
-	    		tipPercentage=15F;
-	    		break;
-	    	case R.id.twenty_percent:
-	    		tipPercentage=20F;
-	    		break;
-    	}
+    	float tipPercentage=Float.parseFloat(v.getTag().toString());
     	//Store selected percentage
     	this.tipPercentage=tipPercentage;
     	updateTipView(tipPercentage);
