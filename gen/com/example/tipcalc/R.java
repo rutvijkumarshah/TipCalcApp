@@ -29,6 +29,7 @@ public final class R {
         public static final int TXT_10_percent=0x7f040002;
         public static final int TXT_15_percent=0x7f040003;
         public static final int TXT_20_percent=0x7f040004;
+        public static final int TXT_TIP_TEMPLATE=0x7f040005;
         public static final int app_name=0x7f040000;
     }
     public static final class style {
