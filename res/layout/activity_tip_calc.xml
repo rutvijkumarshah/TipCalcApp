@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <EditText
+        android:id="@+id/bill_amount_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/HINT_EnterBillAmount"
+    />
+
+    <LinearLayout
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:gravity="center_vertical"
+        android:layout_alignLeft="@+id/bill_amount_et"
+        android:layout_below="@+id/bill_amount_et"
+        android:layout_marginTop="64dp"
+        android:layout_toEndOf="@+id/bill_amount_et"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/ten_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="calcuateTip"
+            android:text="@string/TXT_10_percent" />
+
+        <Button
+            android:id="@+id/fifteen_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="calcuateTip"
+            
+            android:text="@string/TXT_15_percent" />
+
+        <Button
+            android:id="@+id/twenty_percent"
+            android:onClick="calcuateTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TXT_20_percent" />
+    </LinearLayout>
+
+    
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tips"
+        android:layout_below="@+id/tips"
+        android:layout_marginTop="48dp"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</RelativeLayout>

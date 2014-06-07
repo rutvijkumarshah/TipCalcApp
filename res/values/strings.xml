@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TipCalc</string>
+    <string name="HINT_EnterBillAmount">Enter Bill Amount</string>
+    <string name="TXT_10_percent">10%</string>
+    <string name="TXT_15_percent">15%</string>
+    <string name="TXT_20_percent">20%</string>
+</resources>
