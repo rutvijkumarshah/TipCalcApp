@@ -1,21 +1,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
-        <TextView
+   <TextView
         android:id="@+id/label_billAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bill_amount_et"
-        android:layout_alignBottom="@+id/bill_amount_et"
+        android:layout_alignBaseline="@+id/et_bill_amount"
+        android:layout_alignBottom="@+id/et_bill_amount"
         android:layout_alignParentLeft="true"
-        android:text="Bill Amount" />
+        android:textStyle="bold"
+        android:text="Bill" />
     
     <EditText
-        android:id="@+id/bill_amount_et"
+        android:id="@+id/et_bill_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -32,38 +34,42 @@
         android:layout_alignLeft="@+id/label_billAmount"
         android:layout_below="@+id/label_billAmount"
         android:layout_marginTop="17dp"
-        android:text="Tip :" />
+        android:textStyle="bold"
+        android:text="Tip " />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_up"
-        style="?android:attr/buttonStyleSmall"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/label_tip"
         android:layout_alignBottom="@+id/label_tip"
-        android:layout_marginLeft="17dp"
+        android:layout_alignStart="@+id/et_bill_amount"
+        android:layout_below="@+id/et_bill_amount"
         android:layout_toRightOf="@+id/label_tip"
+        android:src="@drawable/tipc_collapse"
         android:text="|" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/label_valTipPercentage"
+        android:layout_alignBottom="@+id/label_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/label_tip"
-        android:layout_marginLeft="7dp"
         android:layout_toRightOf="@+id/btn_up"
-        android:text="Medium Text"
+        android:ems="3"
+        android:text="15"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_down"
+        android:background="@null"
         style="?android:attr/buttonStyleSmall"
+        android:src="@drawable/tipc_expand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignBottom="@+id/label_tip"
+        android:layout_below="@+id/et_bill_amount"
+        android:layout_toRightOf="@+id/label_valTipPercentage"
         android:text="|" />
 
     <TextView
@@ -71,46 +77,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/label_tip"
-        android:layout_below="@+id/btn_down"
+        android:layout_below="@+id/label_tip"
         android:layout_marginTop="22dp"
-        android:text="People" />
+        android:textStyle="bold"
+        android:text="Splits: 1 " />
 
     <SeekBar
         android:id="@+id/seekBar_ppl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_up"
-        android:layout_alignTop="@+id/label_ppl" />
+        android:layout_alignTop="@+id/label_ppl"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
+        android:max="50" />
 
-    <TextView
-        android:id="@+id/label_tax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/label_ppl"
-        android:layout_below="@+id/label_ppl"
-        android:layout_marginTop="24dp"
-        android:text="Tax" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/label_tax"
-        android:layout_alignBottom="@+id/label_tax"
-        android:layout_alignLeft="@+id/seekBar_ppl"
-        android:layout_marginLeft="29dp"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
 
     <TextView
         android:id="@+id/label_perPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="131dp"
+        android:layout_below="@+id/seekBar_ppl"
+        android:layout_marginTop="80dp"
+        android:textStyle="bold"
         android:text="Per Person" />
 
     <TextView
@@ -120,23 +110,16 @@
         android:layout_alignBottom="@+id/label_perPerson"
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
+        android:textStyle="bold"
         android:text="Tip Amount" />
 
-    <TextView
-        android:id="@+id/label_totalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
-        android:text="Total" />
 
     <TextView
         android:id="@+id/label_valPerPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/label_perPerson"
+       	android:gravity="center"
         android:text="$ 22"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -144,21 +127,81 @@
         android:id="@+id/label_valTipAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/label_valPerPerson"
-        android:layout_marginTop="9dp"
-        android:text="$ 10"
+        android:layout_below="@+id/label_tipAmount"
+        android:layout_alignStart="@+id/label_tipAmount"
+        android:text="$ 22"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/label_totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:textStyle="bold"
+        android:text="Total" />
+    
     <TextView
         android:id="@+id/label_valTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/label_totalAmount"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@+id/label_totalAmount"
         android:text="$ 56"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seekBar_ppl"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:text="Rounding" />
+
+    <RadioGroup
+        android:id="@+id/rdg_roundings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_toEndOf="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignTop="@+id/textView1"
+        android:orientation="horizontal" 
+        >
+        
+        <RadioButton
+        android:id="@+id/rd_tipUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/btn_up"
+        android:text="Tip Up" />
+
+    <RadioButton
+        android:id="@+id/rd_tipdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rd_tipUp"
+        android:layout_alignBottom="@+id/rd_tipUp"
+        android:layout_alignLeft="@+id/label_totalAmount"
+        android:text="Tip Down" />
+
+    <RadioButton
+        android:id="@+id/rd_tipExact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rd_tipdown"
+        android:layout_alignBottom="@+id/rd_tipdown"
+        android:layout_alignParentRight="true"
+        android:text="Exact" />
+    </RadioGroup>
+    
     
 </RelativeLayout>
