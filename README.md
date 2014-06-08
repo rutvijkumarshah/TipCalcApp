@@ -12,7 +12,6 @@ Completed user stories:
  * [x] Required: Upon selecting tip amount, formatted tip value is displayed
  * [x] Optional: User changes the total amount and updated tip is reflected automatically
  
-Notes:
 
 
 Walkthrough of all user stories:
