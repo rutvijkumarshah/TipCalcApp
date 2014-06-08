@@ -5,64 +5,160 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
+        <TextView
+        android:id="@+id/label_billAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bill_amount_et"
+        android:layout_alignBottom="@+id/bill_amount_et"
+        android:layout_alignParentLeft="true"
+        android:text="Bill Amount" />
+    
     <EditText
         android:id="@+id/bill_amount_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/label_billAmount"
         android:ems="10"
         android:inputType="numberDecimal"
         android:hint="@string/HINT_EnterBillAmount"
     />
 
-    <LinearLayout
-        android:id="@+id/tips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:gravity="center_vertical"
-        android:layout_alignLeft="@+id/bill_amount_et"
-        android:layout_below="@+id/bill_amount_et"
-        android:layout_marginTop="64dp"
-        android:layout_toEndOf="@+id/bill_amount_et"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/ten_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="calcuateTip"
-            android:tag="10"
-            android:text="@string/TXT_10_percent" />
-			
-        <Button
-            android:id="@+id/fifteen_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="calcuateTip"
-            android:tag="15"
-            android:text="@string/TXT_15_percent" />
-
-        <Button
-            android:id="@+id/twenty_percent"
-            android:onClick="calcuateTip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="20"
-            android:text="@string/TXT_20_percent" />
-    </LinearLayout>
-
-    
     <TextView
-        android:id="@+id/resultTextView"
+        android:id="@+id/label_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tips"
-        android:layout_below="@+id/tips"
-        android:layout_marginTop="48dp"
-        android:gravity="center_horizontal"
-        android:text=""
-        android:textStyle="bold"
+        android:layout_alignLeft="@+id/label_billAmount"
+        android:layout_below="@+id/label_billAmount"
+        android:layout_marginTop="17dp"
+        android:text="Tip :" />
+
+    <Button
+        android:id="@+id/btn_up"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/label_tip"
+        android:layout_alignBottom="@+id/label_tip"
+        android:layout_marginLeft="17dp"
+        android:layout_toRightOf="@+id/label_tip"
+        android:text="|" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/label_tip"
+        android:layout_marginLeft="7dp"
+        android:layout_toRightOf="@+id/btn_up"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btn_down"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="|" />
+
+    <TextView
+        android:id="@+id/label_ppl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/label_tip"
+        android:layout_below="@+id/btn_down"
+        android:layout_marginTop="22dp"
+        android:text="People" />
+
+    <SeekBar
+        android:id="@+id/seekBar_ppl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_up"
+        android:layout_alignTop="@+id/label_ppl" />
+
+    <TextView
+        android:id="@+id/label_tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/label_ppl"
+        android:layout_below="@+id/label_ppl"
+        android:layout_marginTop="24dp"
+        android:text="Tax" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/label_tax"
+        android:layout_alignBottom="@+id/label_tax"
+        android:layout_alignLeft="@+id/seekBar_ppl"
+        android:layout_marginLeft="29dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/label_perPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="131dp"
+        android:text="Per Person" />
+
+    <TextView
+        android:id="@+id/label_tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_perPerson"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:text="Tip Amount" />
+
+    <TextView
+        android:id="@+id/label_totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="65dp"
+        android:text="Total" />
+
+    <TextView
+        android:id="@+id/label_valPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/label_perPerson"
+        android:text="$ 22"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/label_valTipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/label_valPerPerson"
+        android:layout_marginTop="9dp"
+        android:text="$ 10"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/label_valTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/label_totalAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="$ 56"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     
 </RelativeLayout>
