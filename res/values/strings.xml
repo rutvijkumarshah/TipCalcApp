@@ -2,10 +2,9 @@
 <resources>
 
     <string name="app_name">Tip Calculator</string>
-    <string name="HINT_EnterBillAmount">Enter Bill Amount</string>
-    <string name="TXT_10_percent">10%</string>
-    <string name="TXT_15_percent">15%</string>
-    <string name="TXT_20_percent">20%</string>
     <string name="TXT_TIP_TEMPLATE">Tip is:  $%s</string>
     <string name="TXT_SPLITS_TEMPLATE">Splits: %d </string>
+    <string name="TXT_AMOUNT_TEMPLATE">$%.2f</string>
+    <string name="TXT_PERCENTAGE_TEMPLATE">%.2f</string>
+    <string name="MSG_PLEASE_SELECT_EXACT_TEMPLATE">Select Rounding Option: Exact</string>
 </resources>

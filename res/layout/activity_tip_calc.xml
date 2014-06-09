@@ -14,7 +14,8 @@
         android:layout_alignBottom="@+id/et_bill_amount"
         android:layout_alignParentLeft="true"
         android:textStyle="bold"
-        android:text="Bill" />
+        android:textSize="20sp"
+        android:text="Bill Amount $:" />
     
     <EditText
         android:id="@+id/et_bill_amount"
@@ -23,21 +24,23 @@
         android:layout_marginTop="16dp"
         android:layout_toRightOf="@+id/label_billAmount"
         android:ems="10"
+        android:textSize="20sp"
         android:inputType="numberDecimal"
-        android:hint="@string/HINT_EnterBillAmount"
     />
 
     <TextView
         android:id="@+id/label_tip"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/label_billAmount"
         android:layout_below="@+id/label_billAmount"
         android:layout_marginTop="17dp"
         android:textStyle="bold"
-        android:text="Tip " />
+        android:text="Tip % " />
 
     <ImageButton
+        android:layout_marginLeft="8dp"
         android:id="@+id/btn_up"
         android:background="@null"
         android:layout_centerHorizontal="true"
@@ -48,16 +51,19 @@
         android:layout_below="@+id/et_bill_amount"
         android:layout_toRightOf="@+id/label_tip"
         android:src="@drawable/tipc_collapse"
-        android:text="|" />
+        android:onClick="updateTipPercentage"
+         />
 
-    <EditText
+    <TextView
         android:id="@+id/label_valTipPercentage"
         android:layout_alignBottom="@+id/label_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/btn_up"
-        android:ems="3"
-        android:text="15"
+        android:ems="4"
+        android:textSize="20sp"
+        android:text="15.00"
+        android:inputType="numberDecimal"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageButton
@@ -70,13 +76,15 @@
         android:layout_alignBottom="@+id/label_tip"
         android:layout_below="@+id/et_bill_amount"
         android:layout_toRightOf="@+id/label_valTipPercentage"
-        android:text="|" />
+        android:onClick="updateTipPercentage"
+         />
 
     <TextView
         android:id="@+id/label_ppl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/label_tip"
+        android:textSize="20sp"
         android:layout_below="@+id/label_tip"
         android:layout_marginTop="22dp"
         android:textStyle="bold"
@@ -90,6 +98,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="32dp"
+        android:progress="1"
         android:max="50" />
 
 
@@ -100,6 +109,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/seekBar_ppl"
         android:layout_marginTop="80dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text="Per Person" />
 
@@ -111,6 +121,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:text="Tip Amount" />
 
 
@@ -120,7 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/label_perPerson"
        	android:gravity="center"
-        android:text="$ 22"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -129,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/label_tipAmount"
         android:layout_alignStart="@+id/label_tipAmount"
-        android:text="$ 22"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -140,6 +151,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:text="Total" />
     
     <TextView
@@ -149,7 +161,7 @@
         android:layout_alignTop="@+id/label_totalAmount"
         android:layout_marginTop="16dp"
         android:layout_alignStart="@+id/label_totalAmount"
-        android:text="$ 56"
+        android:text=""
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="32dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -162,17 +174,19 @@
         android:layout_below="@+id/seekBar_ppl"
         android:layout_marginTop="18dp"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:text="Rounding" />
 
     <RadioGroup
         android:id="@+id/rdg_roundings"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textView1"
         android:layout_toEndOf="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
         android:layout_alignTop="@+id/textView1"
         android:orientation="horizontal" 
+        android:checkedButton="@+id/rd_tipExact"
+        style="?android:listSeparatorTextViewStyle"
         >
         
         <RadioButton
@@ -200,6 +214,7 @@
         android:layout_alignBaseline="@+id/rd_tipdown"
         android:layout_alignBottom="@+id/rd_tipdown"
         android:layout_alignParentRight="true"
+        
         android:text="Exact" />
     </RadioGroup>
     

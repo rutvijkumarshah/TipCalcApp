@@ -156,9 +156,9 @@ public final class R {
         public static final int label_valTipAmount=0x7f08000c;
         public static final int label_valTipPercentage=0x7f080005;
         public static final int label_valTotalAmount=0x7f08000e;
-        public static final int rd_tipExact=0x7f080013;
-        public static final int rd_tipUp=0x7f080011;
-        public static final int rd_tipdown=0x7f080012;
+        public static final int rd_tipExact=0x7f080011;
+        public static final int rd_tipUp=0x7f080012;
+        public static final int rd_tipdown=0x7f080013;
         public static final int rdg_roundings=0x7f080010;
         public static final int seekBar_ppl=0x7f080008;
         public static final int textView1=0x7f08000f;
@@ -169,12 +169,11 @@ public final class R {
         public static final int apptheme_tab_indicator_holo=0x7f030001;
     }
     public static final class string {
-        public static final int HINT_EnterBillAmount=0x7f060001;
-        public static final int TXT_10_percent=0x7f060002;
-        public static final int TXT_15_percent=0x7f060003;
-        public static final int TXT_20_percent=0x7f060004;
-        public static final int TXT_SPLITS_TEMPLATE=0x7f060006;
-        public static final int TXT_TIP_TEMPLATE=0x7f060005;
+        public static final int MSG_PLEASE_SELECT_EXACT_TEMPLATE=0x7f060005;
+        public static final int TXT_AMOUNT_TEMPLATE=0x7f060003;
+        public static final int TXT_PERCENTAGE_TEMPLATE=0x7f060004;
+        public static final int TXT_SPLITS_TEMPLATE=0x7f060002;
+        public static final int TXT_TIP_TEMPLATE=0x7f060001;
         public static final int app_name=0x7f060000;
     }
     public static final class style {
