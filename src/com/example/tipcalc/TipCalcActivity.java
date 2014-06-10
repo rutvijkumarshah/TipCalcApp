@@ -108,7 +108,7 @@ public class TipCalcActivity extends RoboActivity {
 			 valPerPerson.setText(String.format(amountFormatTemplate, result.getPerPersonShare()));
 			 valTipAmount.setText(String.format(amountFormatTemplate, result.getTotalTipAmount()));
 			 valTotalAmount.setText(String.format(amountFormatTemplate,result.getTotalWithTip()));
-			 percentageTextView.setText(String.format(percentageTempalte,result.getTipPercentage()));
+			 percentageTextView.setText(String.format(percentageTempalte,result.getTipPercentage())+" %");
 			 
 			 
 		 }catch(Exception e){
@@ -130,6 +130,7 @@ public class TipCalcActivity extends RoboActivity {
 			 return;
 		 }
 		 if(tipPercentageStr != null && !tipPercentageStr.isEmpty()){
+			 tipPercentageStr=tipPercentageStr.split(" %")[0];
 			 tipPercentage=Float.parseFloat(tipPercentageStr);
 		 }
 		 if(viewId == R.id.btn_up){		 
