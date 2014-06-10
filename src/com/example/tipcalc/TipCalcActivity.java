@@ -67,9 +67,11 @@ public class TipCalcActivity extends RoboActivity {
 	 @InjectView(R.id.label_valTipPercentage)      TextView percentageTextView;
 	 @InjectView(R.id.label_ppl)              TextView splitWays;
 	 @InjectView(R.id.seekBar_ppl)            SeekBar seekBarSplits;
+	 
 	 @InjectView(R.id.label_valPerPerson)              TextView valPerPerson;
 	 @InjectView(R.id.label_valTipAmount)              TextView valTipAmount;
 	 @InjectView(R.id.label_valTotalAmount)              TextView valTotalAmount;
+	 
 	 @InjectView(R.id.rdg_roundings)  		RadioGroup roundingOptions;
 	 @InjectView(R.id.btn_up)              ImageButton incPercentageButton;
 	 @InjectView(R.id.btn_down)              ImageButton decPercentageButton;
