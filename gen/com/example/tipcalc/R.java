@@ -176,6 +176,18 @@ public final class R {
         public static final int TXT_SPLITS_TEMPLATE=0x7f060002;
         public static final int TXT_TIP_TEMPLATE=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int bill_amount_=0x7f060006;
+        public static final int default_result_zero=0x7f06000d;
+        public static final int default_splits_val=0x7f060009;
+        public static final int default_tip_percentage=0x7f060008;
+        public static final int exact=0x7f060011;
+        public static final int per_person=0x7f06000b;
+        public static final int round_splits_=0x7f06000e;
+        public static final int tip_=0x7f060007;
+        public static final int tip_amount=0x7f06000a;
+        public static final int tip_down=0x7f060010;
+        public static final int tip_up=0x7f06000f;
+        public static final int total=0x7f06000c;
     }
     public static final class style {
         /** 

@@ -7,4 +7,16 @@
     <string name="TXT_AMOUNT_TEMPLATE">$%.2f</string>
     <string name="TXT_PERCENTAGE_TEMPLATE">%.2f</string>
     <string name="MSG_PLEASE_SELECT_EXACT_TEMPLATE">Select Rounding Option: Exact</string>
+    <string name="bill_amount_">Bill Amount $:</string>
+    <string name="tip_">Tip:</string>
+    <string name="default_tip_percentage">15.00 %</string>
+    <string name="default_splits_val">"Splits: 1 "</string>
+    <string name="tip_amount">Tip Amount</string>
+    <string name="per_person">Per Person</string>
+    <string name="total">Total</string>
+    <string name="default_result_zero">$0</string>
+    <string name="round_splits_">Round Splits:</string>
+    <string name="tip_up">Tip Up</string>
+    <string name="tip_down">Tip Down</string>
+    <string name="exact">Exact</string>
 </resources>

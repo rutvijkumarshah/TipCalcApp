@@ -13,7 +13,7 @@
         android:layout_alignBaseline="@+id/et_bill_amount"
         android:layout_alignBottom="@+id/et_bill_amount"
         android:layout_alignParentLeft="true"
-        android:text="Bill Amount $:"
+        android:text="@string/bill_amount_"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         android:layout_alignLeft="@+id/label_billAmount"
         android:layout_below="@+id/label_billAmount"
         android:layout_marginTop="17dp"
-        android:text="Tip:"
+        android:text="@string/tip_"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
         android:layout_alignBottom="@+id/label_tip"
         android:layout_toRightOf="@+id/btn_up"
         android:inputType="numberDecimal"
-        android:text="15.00 %"
+        android:text="@string/default_tip_percentage"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="20sp" />
 
@@ -82,7 +82,7 @@
         android:layout_alignLeft="@+id/label_tip"
         android:layout_below="@+id/label_tip"
         android:layout_marginTop="22dp"
-        android:text="Splits: 1 "
+        android:text="@string/default_splits_val"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
         android:layout_below="@+id/rdg_roundings"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Tip Amount"
+        android:text="@string/tip_amount"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -115,7 +115,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/label_tipAmount"
         android:gravity="center"
-        android:text="Per Person"
+        android:text="@string/per_person"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -126,7 +126,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/label_perPerson"
         android:gravity="center"
-        android:text="Total"
+        android:text="@string/total"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -137,7 +137,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/label_perPerson"
         android:gravity="left"
-        android:text="$0"
+        android:text="@string/default_result_zero"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -147,7 +147,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/label_tipAmount"
         android:gravity="left"
-        android:text="$0"
+        android:text="@string/default_result_zero"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -157,7 +157,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/label_totalAmount"
         android:gravity="left"
-        android:text="$0"
+        android:text="@string/default_result_zero"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -167,7 +167,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/seekBar_ppl"
         android:layout_marginTop="18dp"
-        android:text="Round Splits:"
+        android:text="@string/round_splits_"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -184,19 +184,19 @@
             android:id="@+id/rd_tipUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tip Up" />
+            android:text="@string/tip_up" />
 
         <RadioButton
             android:id="@+id/rd_tipdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tip Down" />
+            android:text="@string/tip_down" />
 
         <RadioButton
             android:id="@+id/rd_tipExact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exact" />
+            android:text="@string/exact" />
     </RadioGroup>
 
 </RelativeLayout>

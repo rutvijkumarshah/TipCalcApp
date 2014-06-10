@@ -24,7 +24,6 @@ package com.example.tipcalc;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.content.Context;
@@ -44,7 +43,6 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.tipcalc.TipCalcValues.CalculationResult;
 
 /***
