@@ -24,6 +24,7 @@ package com.example.tipcalc;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.content.Context;
@@ -43,6 +44,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.tipcalc.TipCalcValues.CalculationResult;
 
 /***
@@ -57,11 +59,6 @@ import com.example.tipcalc.TipCalcValues.CalculationResult;
  */
 public class TipCalcActivity extends RoboActivity {
 
-	//TODOS 
-	//1. Externalize Strings
-	//2. Align result text and $$$
-	//3. Play with Font and Theme
-	
 	 @InjectView(R.id.et_bill_amount)      EditText billAmountEditText;
 	 @InjectView(R.id.label_valTipPercentage)      TextView percentageTextView;
 	 @InjectView(R.id.label_ppl)              TextView splitWays;
@@ -86,8 +83,11 @@ public class TipCalcActivity extends RoboActivity {
 	 private String amountFormatTemplate=null;
 	 private String percentageTempalte=null;
 	 private String msgSelectExactOption=null;
+	 private float selectedTipPercentageWithExactRounding=15.00f;
 	 
-	 private TipCalcValues tripCalcValues=new TipCalcValues();
+	 private TipCalcValues tipCalcValues=new TipCalcValues();
+	 
+	 
 	
 	 private static void applyTypeFace(Context ctx,ViewGroup layout,List<Integer> ids){
 		
@@ -106,9 +106,22 @@ public class TipCalcActivity extends RoboActivity {
 	 private void resetResultView(){
 		 
 	 }
+	 
+	 private void showVariableInputs(){
+		 
+		 incPercentageButton.setVisibility(View.VISIBLE);
+		 decPercentageButton.setVisibility(View.VISIBLE);
+		 seekBarSplits.setVisibility(View.VISIBLE);
+	 }
+	 
+	 private void hideVariableInputs(){
+		 incPercentageButton.setVisibility(View.INVISIBLE);
+		 decPercentageButton.setVisibility(View.INVISIBLE);
+		 seekBarSplits.setVisibility(View.INVISIBLE);
+	 }
 	 private void updateResultView(){
 		 try{
-			 CalculationResult result = tripCalcValues.calculate();
+			 CalculationResult result = tipCalcValues.calculate();
 			 
 			 valPerPerson.setText(String.format(amountFormatTemplate, result.getPerPersonShare()));
 			 valTipAmount.setText(String.format(amountFormatTemplate, result.getTotalTipAmount()));
@@ -150,7 +163,7 @@ public class TipCalcActivity extends RoboActivity {
 				 newPercentage=1;
 			 }
 		 }
-		 tripCalcValues.setTipPercentage(newPercentage);
+		 tipCalcValues.setTipPercentage(newPercentage);
 		 percentageTextView.setText(""+newPercentage);
 		 updateResultView();
 		 
@@ -166,16 +179,19 @@ public class TipCalcActivity extends RoboActivity {
 			
 			@Override
 			public void onCheckedChanged(RadioGroup group,final int checkedId) {
-				// TODO Auto-generated method stub
+				tipCalcValues.setTipPercentage(selectedTipPercentageWithExactRounding);
 				switch (checkedId) {
 				case R.id.rd_tipUp:
-					tripCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_UP);
+					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_UP);
+					hideVariableInputs();
 					break;
 				case R.id.rd_tipdown:
-					tripCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_DOWN);
+					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_DOWN);
+					hideVariableInputs();
 					break;
 				case R.id.rd_tipExact:
-					tripCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_EXACT);
+					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_EXACT);
+					showVariableInputs();
 				default:
 					break;
 				}
@@ -183,6 +199,29 @@ public class TipCalcActivity extends RoboActivity {
 			}
 		});
 		percentageTextView.setKeyListener(null);//NOT ALLOWED TO ENTER Text
+		percentageTextView.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(roundingExact.isSelected()){
+					selectedTipPercentageWithExactRounding=Float.parseFloat(percentageTextView.getText().toString().split(" %")[0]);
+				}
+				
+			}
+		});
 		billAmountEditText.addTextChangedListener(new TextWatcher() {
 			
 			@Override
@@ -206,7 +245,7 @@ public class TipCalcActivity extends RoboActivity {
 				if(billAmountStr !=null && !billAmountStr.isEmpty()){
 					billAmount=Float.parseFloat(s.toString());
 				}
-				tripCalcValues.setBillAmount(billAmount);
+				tipCalcValues.setBillAmount(billAmount);
 				updateResultView();
 			}
 		});
@@ -237,34 +276,12 @@ public class TipCalcActivity extends RoboActivity {
 					seekBar.setProgress(1);
 				}
 				splitWays.setText(String.format(splitTextTemplate, progress));
-				tripCalcValues.setSplits(progress);
+				tipCalcValues.setSplits(progress);
 				updateResultView();
 			}
 		});
-		
-		
+				
 
 	}
 
-	/***
-	 * Calback method invoked from tip selection buttions.
-	 * 
-	 * @param v Selected Button View
-	 */
-	public void calcuateTip(final View v){
-    	final int viewId=v.getId();
-    	float tipPercentage=Float.parseFloat(v.getTag().toString());
-    }
-	
-	
-	/***
-	 * Calculates tip for given bill amount and tip percentage.
-	 * 
-	 * @param bill
-	 * @param tipPercentage
-	 * @return
-	 */
-	private static float tipCalc(float bill,float tipPercentage){
-		return (float) ((bill*tipPercentage)/100.0);
-	}
 }

@@ -92,6 +92,7 @@ public class TipCalcValues {
 			new_totalTip = totalTip - (roundDiff * getSplits());
 			new_percentage = (float) (new_totalTip * 100.0) / getBillAmount();
 			new_perPerson = exactPerPersonShare - roundDiff;
+			
 			tipPercentage = new_percentage;
 		}
 		float total_final_bill = new_totalTip + getBillAmount();
@@ -142,6 +143,9 @@ public class TipCalcValues {
 		public CalculationResult setTipPercentage(float tipPercentage) {
 			if(tipPercentage > 100){
 				tipPercentage=100;
+			}
+			if (tipPercentage < 0){
+				tipPercentage=0;
 			}
 			this.tipPercentage = tipPercentage;
 			return this;
