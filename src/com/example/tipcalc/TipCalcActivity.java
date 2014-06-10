@@ -57,6 +57,11 @@ import com.example.tipcalc.TipCalcValues.CalculationResult;
  */
 public class TipCalcActivity extends RoboActivity {
 
+	//TODOS 
+	//1. Externalize Strings
+	//2. Align result text and $$$
+	//3. Play with Font and Theme
+	
 	 @InjectView(R.id.et_bill_amount)      EditText billAmountEditText;
 	 @InjectView(R.id.label_valTipPercentage)      TextView percentageTextView;
 	 @InjectView(R.id.label_ppl)              TextView splitWays;

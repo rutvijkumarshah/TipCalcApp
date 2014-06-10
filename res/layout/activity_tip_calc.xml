@@ -34,7 +34,7 @@
         android:layout_alignLeft="@+id/label_billAmount"
         android:layout_below="@+id/label_billAmount"
         android:layout_marginTop="17dp"
-        android:text="Tip"
+        android:text="Tip:"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/seekBar_ppl"
         android:layout_marginTop="18dp"
-        android:text="Round Splits"
+        android:text="Round Splits:"
         android:textSize="20sp"
         android:textStyle="bold" />
 
