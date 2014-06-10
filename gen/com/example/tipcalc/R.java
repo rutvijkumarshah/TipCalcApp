@@ -148,21 +148,21 @@ public final class R {
         public static final int btn_up=0x7f080004;
         public static final int et_bill_amount=0x7f080002;
         public static final int label_billAmount=0x7f080001;
-        public static final int label_perPerson=0x7f08000a;
+        public static final int label_perPerson=0x7f08000b;
         public static final int label_ppl=0x7f080007;
         public static final int label_tip=0x7f080003;
-        public static final int label_tipAmount=0x7f08000c;
-        public static final int label_totalAmount=0x7f08000e;
+        public static final int label_tipAmount=0x7f080009;
+        public static final int label_totalAmount=0x7f08000c;
         public static final int label_valPerPerson=0x7f08000d;
-        public static final int label_valTipAmount=0x7f08000f;
+        public static final int label_valTipAmount=0x7f08000e;
         public static final int label_valTipPercentage=0x7f080005;
-        public static final int label_valTotalAmount=0x7f080010;
+        public static final int label_valTotalAmount=0x7f08000f;
         public static final int rd_tipExact=0x7f080011;
         public static final int rd_tipUp=0x7f080012;
         public static final int rd_tipdown=0x7f080013;
-        public static final int rdg_roundings=0x7f08000b;
+        public static final int rdg_roundings=0x7f08000a;
         public static final int seekBar_ppl=0x7f080008;
-        public static final int textView1=0x7f080009;
+        public static final int textView1=0x7f080010;
         public static final int top_layout=0x7f080000;
     }
     public static final class layout {

@@ -22,6 +22,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 package com.example.tipcalc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import roboguice.activity.RoboActivity;
@@ -38,6 +39,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -80,7 +82,7 @@ public class TipCalcActivity extends RoboActivity {
 	 @InjectView(R.id.rd_tipExact)              RadioButton roundingExact;
 	 
 	 
-	 private static String FONT="font_3838.ttf";
+	 private static String FONT="OpenSans-Bold.ttf";
 	 
 	 private String splitTextTemplate=null;
 	 private String amountFormatTemplate=null;
@@ -160,7 +162,7 @@ public class TipCalcActivity extends RoboActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tip_calc);
 	
-		//applyTypeFace(this, (RelativeLayout)findViewById(R.id.top_layout), new ArrayList<Integer>());
+		applyTypeFace(this, (RelativeLayout)findViewById(R.id.top_layout), new ArrayList<Integer>());
 		
 		roundingOptions.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			

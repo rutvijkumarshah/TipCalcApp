@@ -97,6 +97,70 @@
         android:progress="1" />
 
     <TextView
+        android:id="@+id/label_tipAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rdg_roundings"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Tip Amount"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/label_perPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/label_tipAmount"
+        android:gravity="center"
+        android:text="Per Person"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/label_totalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/label_perPerson"
+        android:gravity="center"
+        android:text="Total"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/label_valPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/label_perPerson"
+        android:gravity="left"
+        android:text="$0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/label_valTipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/label_tipAmount"
+        android:gravity="left"
+        android:text="$0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/label_valTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/label_totalAmount"
+        android:gravity="left"
+        android:text="$0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,73 +171,12 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/label_perPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_bill_amount"
-        android:layout_below="@+id/rdg_roundings"
-        android:layout_marginTop="109dp"
-        android:text="Per Person"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/label_tipAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/label_valPerPerson"
-        android:layout_marginBottom="9dp"
-        android:layout_toRightOf="@+id/label_billAmount"
-        android:text="Tip Amount"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/label_totalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/label_perPerson"
-        android:layout_marginTop="27dp"
-        android:layout_toRightOf="@+id/label_billAmount"
-        android:text="Total"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/label_valPerPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/label_perPerson"
-        android:layout_alignParentRight="true"
-        android:text="$0"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/label_valTipAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/label_tipAmount"
-        android:text="$0"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/label_valTotalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/label_totalAmount"
-        android:layout_alignParentRight="true"
-        android:text="$0"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <RadioGroup
         android:id="@+id/rdg_roundings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/textView1"
         android:checkedButton="@+id/rd_tipExact"
         android:orientation="horizontal" >
 
