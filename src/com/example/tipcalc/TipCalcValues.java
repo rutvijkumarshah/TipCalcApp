@@ -50,6 +50,7 @@ public class TipCalcValues {
 		resultInstance.perPersonShare = 0;
 		resultInstance.totalTipAmount = 0;
 		resultInstance.totalWithTip = 0;
+		resultInstance.tipPercentage=tipPercentage;
 	}
 
 	public CalculationResult calculate() {
@@ -139,6 +140,9 @@ public class TipCalcValues {
 		}
 
 		public CalculationResult setTipPercentage(float tipPercentage) {
+			if(tipPercentage > 100){
+				tipPercentage=100;
+			}
 			this.tipPercentage = tipPercentage;
 			return this;
 		}

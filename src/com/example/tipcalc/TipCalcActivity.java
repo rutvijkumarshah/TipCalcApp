@@ -56,12 +56,6 @@ import com.example.tipcalc.TipCalcValues.CalculationResult;
  *
  */
 public class TipCalcActivity extends RoboActivity {
-//TODOS
-	/****
-	 * 1. UI elegance
-	 * 2. Up & Down percentage not working after roudning options selected
-	 * 
-	 */
 
 	 @InjectView(R.id.et_bill_amount)      EditText billAmountEditText;
 	 @InjectView(R.id.label_valTipPercentage)      TextView percentageTextView;
