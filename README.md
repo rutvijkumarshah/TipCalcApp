@@ -15,7 +15,7 @@ Completed user stories:
  * [x] Optional: User can select how many ways to split the tip
  * [x] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
  * [x] Optional: Improve the user interface and experience by using images and/or colors 
- * [x] Optional(New feature): User can round off split amount but tipping up or down.
+ * [x] Additional: User can round off split amount but tipping up or down.
 
 
 Walkthrough of all user stories:
