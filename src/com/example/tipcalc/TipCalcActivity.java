@@ -86,9 +86,7 @@ public class TipCalcActivity extends RoboActivity {
 	 private float selectedTipPercentageWithExactRounding=15.00f;
 	 
 	 private TipCalcValues tipCalcValues=new TipCalcValues();
-	 
-	 
-	
+	 	
 	 private static void applyTypeFace(Context ctx,ViewGroup layout,List<Integer> ids){
 		
 		 Typeface face = Typeface.createFromAsset(ctx.getAssets(), "fonts/"+FONT);
@@ -103,10 +101,6 @@ public class TipCalcActivity extends RoboActivity {
 		 }
 		    
 	 }
-	 private void resetResultView(){
-		 
-	 }
-	 
 	 private void showVariableInputs(){
 		 
 		 incPercentageButton.setVisibility(View.VISIBLE);
@@ -127,12 +121,11 @@ public class TipCalcActivity extends RoboActivity {
 			 valTipAmount.setText(String.format(amountFormatTemplate, result.getTotalTipAmount()));
 			 valTotalAmount.setText(String.format(amountFormatTemplate,result.getTotalWithTip()));
 			 percentageTextView.setText(String.format(percentageTempalte,result.getTipPercentage())+" %");
-			 
+//			 if(roundingExact.isChecked()){
+//				 this.selectedTipPercentageWithExactRounding=result.getTipPercentage();
+//			 }
 			 
 		 }catch(Exception e){
-			 //Excpeption invalid values being processed.
-			e.printStackTrace(); //TODO Remove this and implement reseet view
-			resetResultView();
 		 }
 		 
 	 }
@@ -142,11 +135,7 @@ public class TipCalcActivity extends RoboActivity {
 		 float newPercentage=0f;
 		 String tipPercentageStr=percentageTextView.getText().toString();
 		 float tipPercentage=0f;
-		 
-		 if(!roundingExact.isChecked()){
-			 Toast.makeText(this,msgSelectExactOption, Toast.LENGTH_SHORT).show();
-			 return;
-		 }
+		
 		 if(tipPercentageStr != null && !tipPercentageStr.isEmpty()){
 			 tipPercentageStr=tipPercentageStr.split(" %")[0];
 			 tipPercentage=Float.parseFloat(tipPercentageStr);
@@ -164,7 +153,6 @@ public class TipCalcActivity extends RoboActivity {
 			 }
 		 }
 		 tipCalcValues.setTipPercentage(newPercentage);
-		 percentageTextView.setText(""+newPercentage);
 		 updateResultView();
 		 
 	 }
@@ -184,9 +172,11 @@ public class TipCalcActivity extends RoboActivity {
 				case R.id.rd_tipUp:
 					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_UP);
 					hideVariableInputs();
+					Toast.makeText(TipCalcActivity.this,msgSelectExactOption, Toast.LENGTH_SHORT).show();
 					break;
 				case R.id.rd_tipdown:
 					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_DOWN);
+					Toast.makeText(TipCalcActivity.this,msgSelectExactOption, Toast.LENGTH_SHORT).show();
 					hideVariableInputs();
 					break;
 				case R.id.rd_tipExact:
@@ -216,10 +206,10 @@ public class TipCalcActivity extends RoboActivity {
 			
 			@Override
 			public void afterTextChanged(Editable s) {
-				if(roundingExact.isSelected()){
+				if(roundingExact.isChecked()){
 					selectedTipPercentageWithExactRounding=Float.parseFloat(percentageTextView.getText().toString().split(" %")[0]);
 				}
-				
+			
 			}
 		});
 		billAmountEditText.addTextChangedListener(new TextWatcher() {
@@ -252,7 +242,8 @@ public class TipCalcActivity extends RoboActivity {
 		this.splitTextTemplate=getResources().getString(R.string.TXT_SPLITS_TEMPLATE);
 		this.amountFormatTemplate=getResources().getString(R.string.TXT_AMOUNT_TEMPLATE);
 		this.percentageTempalte=getResources().getString(R.string.TXT_PERCENTAGE_TEMPLATE);
-		this.msgSelectExactOption=getResources().getString(R.string.MSG_PLEASE_SELECT_EXACT_TEMPLATE);
+		//JAVA
+		this.msgSelectExactOption=getResources().getString(R.string.MSG_PLEASE_SELECT_EXACT_TO_CHANGE_TEMPLATE);
 		
 		seekBarSplits.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 			

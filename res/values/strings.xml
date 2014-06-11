@@ -6,7 +6,7 @@
     <string name="TXT_SPLITS_TEMPLATE">Splits: %d </string>
     <string name="TXT_AMOUNT_TEMPLATE">$%.2f</string>
     <string name="TXT_PERCENTAGE_TEMPLATE">%.2f</string>
-    <string name="MSG_PLEASE_SELECT_EXACT_TEMPLATE">Select Rounding Option: Exact</string>
+    <string name="MSG_PLEASE_SELECT_EXACT_TO_CHANGE_TEMPLATE">Use Round Splits: Exact to change splits and Tip %</string>
     <string name="bill_amount_">Bill Amount $:</string>
     <string name="tip_">Tip:</string>
     <string name="default_tip_percentage">15.00 %</string>
