@@ -11,12 +11,16 @@ Completed user stories:
  * [x] Required: User can select between tip amounts (i.e 10%, 15%, 20%)
  * [x] Required: Upon selecting tip amount, formatted tip value is displayed
  * [x] Optional: User changes the total amount and updated tip is reflected automatically
- 
+ * [x] Optional: User can select custom tip percentage if desired
+ * [x] Optional: User can select how many ways to split the tip
+ * [x] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
+ * [x] Optional: Improve the user interface and experience by using images and/or colors 
+ * [x] Optional(New feature): User can round off split amount but tipping up or down.
 
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](tipcalc_App.gif)
+![Video Walkthrough](TipCalc_Improved.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
