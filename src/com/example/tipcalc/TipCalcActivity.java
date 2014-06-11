@@ -49,12 +49,9 @@ import com.example.tipcalc.TipCalcValues.CalculationResult;
 
 /***
  * 
- * #6a8eda
  * Launcher Main activity for Tip Calculator
  * 
- * 
  * @author Rutvijkumar Shah
- *
  *
  */
 public class TipCalcActivity extends RoboActivity {
@@ -85,8 +82,18 @@ public class TipCalcActivity extends RoboActivity {
 	 private String msgSelectExactOption=null;
 	 private float selectedTipPercentageWithExactRounding=15.00f;
 	 
-	 private TipCalcValues tipCalcValues=new TipCalcValues();
+	 private Toast msgToast=null;
+	 private TipCalcValues tipCalcValues=new TipCalcValues(); //Data objects represents tip calc values
 	 	
+	 /***
+	  * Apply Typeface to all child objects of view where child is TextView
+	  * 
+	  * TODO instead of instanceOf use list of ids
+	  * 
+	  * @param ctx
+	  * @param layout
+	  * @param ids
+	  */
 	 private static void applyTypeFace(Context ctx,ViewGroup layout,List<Integer> ids){
 		
 		 Typeface face = Typeface.createFromAsset(ctx.getAssets(), "fonts/"+FONT);
@@ -95,40 +102,52 @@ public class TipCalcActivity extends RoboActivity {
 		       View v = layout.getChildAt(i);
 		       if(v instanceof TextView ){
 		    	   ((TextView) v).setTypeface(face);
-		       }else if ( v instanceof  RadioButton){
-		    	   ((RadioButton) v).setTypeface(face);
 		       }
 		 }
 		    
 	 }
+	 
+	 /***
+	  * 
+	  * Make variable inputs visible
+	  * 
+	  */
 	 private void showVariableInputs(){
-		 
-		 incPercentageButton.setVisibility(View.VISIBLE);
-		 decPercentageButton.setVisibility(View.VISIBLE);
-		 seekBarSplits.setVisibility(View.VISIBLE);
+		 incPercentageButton.setEnabled(true);
+		 decPercentageButton.setEnabled(true);
+		 seekBarSplits.setEnabled(true);
+		 billAmountEditText.setEnabled(true);
+	 }
+	
+	 /***
+	  * 
+	  * When Exact Rounding is not selected hide variable inputs
+	  * 
+	  */
+	 private void hideVariableInputs(){
+		 incPercentageButton.setEnabled(false);
+		 decPercentageButton.setEnabled(false);
+		 seekBarSplits.setEnabled(false);
+		 billAmountEditText.setEnabled(false);
 	 }
 	 
-	 private void hideVariableInputs(){
-		 incPercentageButton.setVisibility(View.INVISIBLE);
-		 decPercentageButton.setVisibility(View.INVISIBLE);
-		 seekBarSplits.setVisibility(View.INVISIBLE);
-	 }
-	 private void updateResultView(){
-		 try{
-			 CalculationResult result = tipCalcValues.calculate();
-			 
-			 valPerPerson.setText(String.format(amountFormatTemplate, result.getPerPersonShare()));
-			 valTipAmount.setText(String.format(amountFormatTemplate, result.getTotalTipAmount()));
-			 valTotalAmount.setText(String.format(amountFormatTemplate,result.getTotalWithTip()));
-			 percentageTextView.setText(String.format(percentageTempalte,result.getTipPercentage())+" %");
-//			 if(roundingExact.isChecked()){
-//				 this.selectedTipPercentageWithExactRounding=result.getTipPercentage();
-//			 }
-			 
-		 }catch(Exception e){
-		 }
-		 
-	 }
+	/***
+	 * Update Result Views
+	 */
+	private void updateResultView() {
+
+		CalculationResult result = tipCalcValues.calculate();
+		valPerPerson.setText(String.format(amountFormatTemplate,
+				result.getPerPersonShare()));
+		valTipAmount.setText(String.format(amountFormatTemplate,
+				result.getTotalTipAmount()));
+		valTotalAmount.setText(String.format(amountFormatTemplate,
+				result.getTotalWithTip()));
+		percentageTextView.setText(String.format(percentageTempalte,
+				result.getTipPercentage())
+				+ " %");
+
+	}
 	 
 	 public void updateTipPercentage(View view){
 		 int viewId=view.getId();
@@ -154,8 +173,14 @@ public class TipCalcActivity extends RoboActivity {
 		 }
 		 tipCalcValues.setTipPercentage(newPercentage);
 		 updateResultView();
-		 
 	 }
+	 
+	private void showMsg(){
+		if(msgToast == null){
+			msgToast=Toast.makeText(TipCalcActivity.this,msgSelectExactOption, Toast.LENGTH_LONG);
+		}
+		msgToast.show();
+	} 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -172,11 +197,11 @@ public class TipCalcActivity extends RoboActivity {
 				case R.id.rd_tipUp:
 					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_UP);
 					hideVariableInputs();
-					Toast.makeText(TipCalcActivity.this,msgSelectExactOption, Toast.LENGTH_SHORT).show();
+					showMsg();
 					break;
 				case R.id.rd_tipdown:
 					tipCalcValues.setRoundingOption(TipCalcValues.ROUNDING_TIP_DOWN);
-					Toast.makeText(TipCalcActivity.this,msgSelectExactOption, Toast.LENGTH_SHORT).show();
+					showMsg();
 					hideVariableInputs();
 					break;
 				case R.id.rd_tipExact:
@@ -190,18 +215,13 @@ public class TipCalcActivity extends RoboActivity {
 		});
 		percentageTextView.setKeyListener(null);//NOT ALLOWED TO ENTER Text
 		percentageTextView.addTextChangedListener(new TextWatcher() {
-			
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
@@ -215,21 +235,16 @@ public class TipCalcActivity extends RoboActivity {
 		billAmountEditText.addTextChangedListener(new TextWatcher() {
 			
 			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
-				
-					
+			public void onTextChanged(CharSequence s, int start, int before, int count) {	
 			}
 			
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
-				// TODO Auto-generated method stub
 			}
 			
 			@Override
 			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
 				String billAmountStr=s.toString();
 				float billAmount=0F;
 				if(billAmountStr !=null && !billAmountStr.isEmpty()){
@@ -242,21 +257,16 @@ public class TipCalcActivity extends RoboActivity {
 		this.splitTextTemplate=getResources().getString(R.string.TXT_SPLITS_TEMPLATE);
 		this.amountFormatTemplate=getResources().getString(R.string.TXT_AMOUNT_TEMPLATE);
 		this.percentageTempalte=getResources().getString(R.string.TXT_PERCENTAGE_TEMPLATE);
-		//JAVA
 		this.msgSelectExactOption=getResources().getString(R.string.MSG_PLEASE_SELECT_EXACT_TO_CHANGE_TEMPLATE);
 		
 		seekBarSplits.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-			
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
