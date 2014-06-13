@@ -2,7 +2,7 @@
 
 This is an Android demo application for calculating Tip. 
 
-Time spent: 4 hours spent in total.
+Time spent: 20 hours spent in total.
 
 Completed user stories:
 
@@ -16,6 +16,10 @@ Completed user stories:
  * [x] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
  * [x] Optional: Improve the user interface and experience by using images and/or colors 
  * [x] Additional: User can round off split amount but tipping up or down.
+
+Additional Information:
+ * Used RoboGuice IoC framework for clean dependencies management.
+ * Used Android Lint to lint application code agaist best practises and possible issues.
 
 
 Walkthrough of all user stories:
